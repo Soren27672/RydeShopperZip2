@@ -10,12 +10,16 @@
 }
 
 html {
-  height: -webkit-fill-available;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
 }
 
 body {
     font-family: Montserrat, "sans serif";
-    height: -webkit-fill-available;
+    font-size: max(1rem,min(2vw,2vh));
+    min-height: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -89,17 +93,54 @@ main {
 
 .content {
   position: relative;
+  font-size: min(3.5vw,2.33vh);
   height: 85%;
-  width: 22em;
+  width: 20em;
   background-color: white;
   border-radius: 2em;
   box-shadow: 0.5em 0.5em 0.5em #0000007f;
+  display: flex;
+  justify-content: center;
+}
+
+.content svg {
+  position: absolute;
+  height: 120%;
+  width: 120%;
+  top: 40%;
+}
+
+#car {
+  rotate: -180deg;
+  transform-origin: center;
+  animation: rotate-in 2s ease-out 0s forwards;
+}
+
+#body {
+  animation: bounce 1s linear 2s infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+#wheel-rear, #star-rear, #wheel-front, #star-front {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: rotate 1s linear 0s infinite;
+}
+
+#planet {
+  animation: rotate 5s ease-out 1.15s reverse,
+  rotate 5s linear 6.15s infinite reverse;
+  transform-origin: center;
+  transform-box: fill-box;
 }
 
 .text {
   display: flex;
   flex-direction: column;
+  row-gap: 1em;
   align-items: center;
+  max-width: 16em;
   margin: 2em 1.25em;
 }
 
@@ -108,8 +149,8 @@ main {
   font-style: normal;
 }
 
-.text h1 {
-  max-width: 9em;
+.text p {
+  font-size: 1.25em;
 }
 
 .text * {
@@ -120,4 +161,84 @@ main {
 
 .content form {
   display: flex;
+  flex-direction: column;
+  row-gap: 0.5em;
+  align-items: center;
+  font-size: 1.25em;
+}
+
+.content form [type="text"] {
+  width: 8ch;
+  text-align: center;
+  font-style: italic;
+  font-size: inherit;
+
+  padding: 0.1em;
+  border: solid var(--primary) 0.15em;
+  border-radius: 0.5em;
+}
+
+.content form [type="text"]:focus {
+  border: solid var(--primary-hover) 0.15em;
+  transition: border-color 0.3s;
+}
+
+.content form [type="submit"] {
+  width: 5ch;
+  text-align: center;
+  font-size: inherit;
+  font-weight: bold;
+
+  padding: 0.1em;
+  color: var(--light);
+  background-color: var(--primary);
+  border: solid var(--primary) 0.15em;
+  border-radius: 0.5em;
+
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.content form [type="submit"]:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+@keyframes rotate-in {
+  0% {
+    rotate: -180deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0%);
+  }
+  25% {
+    transform: translateY(5%);
+  }
+  50% {
+    transform: translateY(-5%);
+  }
+  75% {
+    transform: translateY(2.5%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes rise-in {
+
 }
