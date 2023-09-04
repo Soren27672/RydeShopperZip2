@@ -1,5 +1,7 @@
 :root {
-
+  --primary: #b20a0b;
+  --light: rgb(255, 255, 255);
+  --primary-hover: #e23333;
 }
 
 @font-face {
@@ -21,18 +23,60 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-}
 
-* {
-  border: solid red 1px;
+    background-image: url(./Resources/Image2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 48%;
 }
 
 header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(black 20%, #0000007f 70%, #00000000);
+  height: fit-content;
 }
 
+#logo {
+  margin: 0.75em;
+  height: fit-content;
+}
+
+#logo img {
+  height: 2em;
+}
+
+#menu-icon {
+  margin: 0.75em;
+  height: 2em;
+}
+
+/* #menu-icon, #logo {
+  display: none;
+} */
+
 nav {
+  width: 100%;
+  display: none;
+}
+
+.nav-item {
+  flex-grow: 1;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-item p {
+  margin: 0;
+  color: white;
+}
+
+#nav-close {
+  flex-grow: 0;
+  max-width: 2em;
+  margin: 0.75em;
 }
 
 main {
@@ -45,13 +89,27 @@ main {
 
 .content {
   position: relative;
-  height: 80%;
+  height: 85%;
+  width: 22em;
+  background-color: white;
+  border-radius: 2em;
+  box-shadow: 0.5em 0.5em 0.5em #0000007f;
 }
 
 .text {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 2em 1.25em;
+}
+
+.text em {
+  color: var(--primary);
+  font-style: normal;
+}
+
+.text h1 {
+  max-width: 9em;
 }
 
 .text * {
