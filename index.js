@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', e => {
     const menuIcon = q('#menu-icon');
     const navClose = q('#nav-close');
 
-    console.log(nav);
-    
     zipForm.addEventListener('submit', e => {
         e.preventDefault();
         console.log(e.target.zip.value);

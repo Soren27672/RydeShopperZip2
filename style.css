@@ -34,10 +34,14 @@ body {
     display: flex;
     flex-direction: column;
 
-    background-image: url(./Resources/Image2.jpg);
+    background-image: url(./Resources/Image.webp);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 48%;
+}
+
+body.no-webp {
+  background-image: url(./Resources/Image.png);
 }
 
 header {
