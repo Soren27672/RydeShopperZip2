@@ -6,13 +6,16 @@
     <title>Rydeshopper</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<script type="text/javascript" src="index.js"></script>
 <body>
     <header>
-        <a id="logo"><img src="./Resources/Logo.svg" alt="Rydeshopper Logo"></a>
-        <img  id="menu-icon" src="./Resources/Menu-icon.svg" alt="Menu Icon">
+        <div id="logo-header">
+            <a id="logo" href="https://www.rydeshopper.com/"><img src="./Resources/Logo.svg" alt="Rydeshopper Logo"></a>
+            <img  id="menu-icon" src="./Resources/Menu-icon.svg" alt="Menu Icon">
+        </div>
         <nav>
-            <a class="nav-item"><p>Home</p></a>
-            <a class="nav-item"><p>Magazine</p></a>
+            <a class="nav-item" href="https://www.rydeshopper.com/"><p>Home</p></a>
+            <a class="nav-item" href="https://www.rydeshopper.com/magazine"><p>Magazine</p></a>
             <img id="nav-close" src="./Resources/Close.svg">
         </nav>
     </header>
@@ -47,7 +50,7 @@
             <div class="text">
                 <h1>Find used cars the <em>easy</em> way.</h1>
                 <p>Where should we start our search?</p>
-                <form>
+                <form id="zip-form">
                     <input type="text" name="zip" placeholder="Zip code">
                     <input type="submit" value="Go!">
                 </form>

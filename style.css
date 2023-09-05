@@ -41,16 +41,23 @@ body {
 }
 
 header {
+  background-image: linear-gradient(black 20%, #0000007f 70%, #00000000);
+  height: 4.5em;
+}
+
+#logo-header {
+  width: 100%;
+  position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: linear-gradient(black 20%, #0000007f 70%, #00000000);
-  height: fit-content;
+  transition: top 0.2s, opacity 0.2s;
 }
 
 #logo {
   margin: 0.75em;
   height: fit-content;
+  cursor: pointer;
 }
 
 #logo img {
@@ -67,8 +74,12 @@ header {
 } */
 
 nav {
+  display: flex;
+  position: absolute;
   width: 100%;
-  display: none;
+  opacity: 0%;
+  top: -4em;
+  transition: top 0.2s, opacity 0.2s;
 }
 
 .nav-item {
@@ -76,18 +87,76 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+}
+
+.nav-item:hover {
+  text-decoration: underline;
+  text-decoration-color: white;
 }
 
 .nav-item p {
   margin: 0;
   color: white;
+  cursor: pointer;
 }
 
 #nav-close {
   flex-grow: 0;
   max-width: 2em;
   margin: 0.75em;
+  transition: top 0.2s, opacity 0.2s;
 }
+
+#logo-header.hidden, nav.hidden {
+  top: -4em;
+  opacity: 0%;
+}
+
+#logo-header.visible, nav.visible {
+  top: 0;
+  opacity: 100%;
+}
+
+@media only screen and (min-width: 501px) {
+  
+  #menu-icon {
+    display: none;
+  }
+  
+  #logo-header {
+    width: fit-content;
+    position: static;
+  }
+
+  nav {
+    display: flex;
+    justify-content: right;
+    position: static;
+    opacity: 100% !important;
+    width: min-content;
+  }
+
+  .nav-item {
+    width: min-content;
+  }
+
+  .nav-item p {
+    padding: 1em;
+  }
+
+  #nav-close {
+    display: none;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
+
+
 
 main {
   display: flex;
@@ -140,7 +209,7 @@ main {
 #wheel-rear, #star-rear, #wheel-front, #star-front {
   transform-origin: center;
   transform-box: fill-box;
-  animation: rotate 1s linear var(--animation-delay) infinite;
+  animation: rotate 2s linear var(--animation-delay) infinite;
 }
 
 #planet {
@@ -197,9 +266,10 @@ main {
   width: 8ch;
   text-align: center;
   font-style: italic;
-  font-size: inherit;
+  font-size: 0.75em;
+  font-family: Montserrat;
 
-  padding: 0.1em;
+  padding: 0.25em;
   border: solid var(--primary) 0.15em;
   border-radius: 0.5em;
 }
@@ -213,7 +283,8 @@ main {
   width: 5ch;
   text-align: center;
   font-size: inherit;
-  font-weight: bold;
+  font-family: "Montserrat Bold";
+  cursor: pointer;
 
   padding: 0.1em;
   color: var(--light);
